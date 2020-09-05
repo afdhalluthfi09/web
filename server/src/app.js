@@ -5,15 +5,15 @@ const morgan = require('morgan')
 
 
 const app = express()
-app.use(morgan('combine'))
+app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
 
 
-app.get('/status',(req,res)=>{
+app.post('/register',(req,res)=>{
     res.send({
-        "message" :"hello internet saya lahir"
+        "message" :`hai! ${req.body.email} kamu telah terdaftar `
     })
 })
 app.listen(process.env.PORT || 8081)
